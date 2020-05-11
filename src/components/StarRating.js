@@ -16,6 +16,8 @@ class StarRating extends Component {
     for (let i = 0; i < maxRating; i++) {
       stars.push(
         <Star 
+        isSelected={this.state.rating > i}
+        setRating={()=>this.handleSetRating(i+1)}
           key={i}
         />
       );
@@ -25,7 +27,9 @@ class StarRating extends Component {
 
   // 3. Write an event handler that updates the rating state
   //    Pass the function to a Star component via props
-
+  handleSetRating = (rating) =>{
+    this.setState({rating})
+  }
 
   render() {
     return (
